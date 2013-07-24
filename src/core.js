@@ -428,6 +428,22 @@ IScroll.prototype = {
 
 		this._events[type].push(fn);
 	},
+    
+    off: function (type, fn) {
+        if ( !this._events[type] ) {
+          return;
+        }
+
+        var index = this._events[type].indexOf(fn);
+
+        if (index > -1) {
+          this._events[type].splice(index, 1);
+        }
+    },
+    
+    unbind: function (type) {
+        this._events[type] = [];
+    },
 
 	_execEvent: function (type) {
 		if ( !this._events[type] ) {
