@@ -749,6 +749,10 @@ IScroll.prototype = {
 
 		pos.left -= this.wrapperOffset.left;
 		pos.top  -= this.wrapperOffset.top;
+        
+		//Translate to current scale
+		pos.left = pos.left * this.scale;
+		pos.top  = pos.top * this.scale;
 
 		// if offsetX/Y are true we center the element to the screen
 		if ( offsetX === true ) {
